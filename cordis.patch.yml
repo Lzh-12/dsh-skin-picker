@@ -1,0 +1,5 @@
+# dsh-skin-picker bundle patch：向 web profile 组合插入插件行。
+# 客户端一半由 dsh-client-modules 根据 package.json 的 dsh.client 声明自动装配。
+- insert:
+    - id: skin-picker
+      name: dsh-skin-picker
