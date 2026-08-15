@@ -1,7 +1,7 @@
 {
   "name": "dsh-skin-picker",
-  "version": "0.2.0",
-  "description": "DSH 换肤插件：10 套预设皮肤（亮/暗各一套令牌）+ 恢复默认，设置 → 通用 →「皮肤」行内切换，localStorage 即时缓存 + settings.yaml 跨设备同步。",
+  "version": "0.3.0",
+  "description": "DSH 换肤插件：10 套预设皮肤（亮/暗各一套令牌）+ 界面控件联动 + 恢复默认，设置 → 通用 →「皮肤」行内切换，settings.yaml 跨设备同步。",
   "type": "module",
   "main": "lib/index.js",
   "exports": {
