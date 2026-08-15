@@ -1,9 +1,12 @@
+<div align="right">
+  <a href="./README.en.md"><img alt="English" src="https://img.shields.io/badge/English-2f7bd9?style=for-the-badge"></a>
+</div>
+
 # 🎨 dsh-skin-picker
 
 <p align="center">
-  <b>DSH（DeepSeek Harness）换肤插件</b> · <i>DeepSeek Harness skin / theme plugin</i><br>
-  预设皮肤 · 自然语言换肤 · 自定义背景图片 · 界面控件联动 · 跨设备同步<br>
-  <sub>Presets · Natural-language theming · Custom wallpaper · Control theming · Cross-device sync</sub>
+  <b>DSH（DeepSeek Harness）换肤插件</b><br>
+  预设皮肤 · 自然语言换肤 · 自定义背景图片 · 界面控件联动 · 跨设备同步
 </p>
 
 <p align="center">
@@ -15,17 +18,17 @@
 
 ---
 
-## ✨ 功能 Features
+## ✨ 功能
 
-| 功能 Feature | 说明 Description |
+| 功能 | 说明 |
 | --- | --- |
-| 🎨 **预设皮肤** Presets | 10 套精心调制的皮肤，亮 / 暗双色板自动跟随 · 10 curated skins, light & dark palettes |
-| 🗣️ **自然语言换肤** Natural-language theming | 输入「赛博朋克霓虹」「日式抹茶」等描述，自动生成配色 · type a vibe, get a palette |
-| 🖼️ **自定义背景图片** Custom wallpaper | 上传或粘贴 URL 设为页面背景，带可读性蒙层 · set any image as the page background |
-| 🔗 **界面控件联动** Control theming | 输入框 / 气泡 / 按钮 / tab / 渐变跟随配色 · inputs, bubbles, buttons follow the skin |
-| ☁️ **跨设备同步** Cross-device sync | 皮肤选择写入 `settings.yaml`，多设备共享 · synced via `settings.yaml` |
+| 🎨 **预设皮肤** | 10 套精心调制的皮肤，亮 / 暗双色板自动跟随 |
+| 🗣️ **自然语言换肤** | 输入「赛博朋克霓虹」「日式抹茶」等描述，自动生成配色 |
+| 🖼️ **自定义背景图片** | 上传或粘贴 URL 设为页面背景，带可读性蒙层 |
+| 🔗 **界面控件联动** | 输入框 / 气泡 / 按钮 / tab / 渐变跟随配色 |
+| ☁️ **跨设备同步** | 皮肤选择写入 `settings.yaml`，多设备共享 |
 
-## 🎨 预设皮肤 Presets
+## 🎨 预设皮肤
 
 <p align="center">
   <img alt="海盐蓝" src="https://img.shields.io/badge/海盐蓝-2f7bd9?style=for-the-badge&labelColor=2f7bd9&color=ffffff">
@@ -42,28 +45,27 @@
   <img alt="森林绿" src="https://img.shields.io/badge/森林绿-3f9b4f?style=for-the-badge&labelColor=3f9b4f&color=ffffff">
 </p>
 
-## 📦 安装 Install
+## 📦 安装
 
 ```bash
-# 从 GitHub 安装 · from GitHub
+# 从 GitHub 安装
 dsh plugin --profile web add github:Lzh-12/dsh-skin-picker
 
-# 或从本地目录安装 · or from a local folder
+# 或从本地目录安装
 dsh plugin --profile web add file:./dsh-skin-picker
 ```
 
 安装完成后**重启 `dsh web`**，刷新页面即可在「设置 → 通用」看到「皮肤」行。
-<sub>Restart `dsh web` after installing, then refresh the page.</sub>
 
-## 🚀 使用 Usage
+## 🚀 使用
 
-1. 打开 **设置 → 通用 →「皮肤」** · open *Settings → General → "Skin"*
-2. **预设皮肤**：点色块立即换肤 · click a swatch to switch presets
-3. **自然语言换肤**：输入描述（如「赛博朋克霓虹」）点「生成」· type a description and hit *Generate*
-4. **背景图片**：点「选择图片」上传，或粘贴 URL 点「设为背景」· upload an image or paste a URL
-5. **恢复默认**：一键回到官方主题 · *恢复默认* resets to the official theme
+1. 打开 **设置 → 通用 →「皮肤」**
+2. **预设皮肤**：点色块立即换肤
+3. **自然语言换肤**：输入描述（如「赛博朋克霓虹」）点「生成」
+4. **背景图片**：点「选择图片」上传，或粘贴 URL 点「设为背景」
+5. **恢复默认**：一键回到官方主题
 
-## 🔧 原理 How it works
+## 🔧 原理
 
 - 浏览器端通过 `theme.overrideTokens(source, tokens)` 叠加令牌层：`tokens` 为 `令牌名 → { light, dark }` 值对，与主题系统、明暗模式天然兼容
 - 界面控件联动：派生令牌（`--dsw-specific-*`、`--dsw-static-deepseek-*`、`--dsw-alias-button-*` 等）+ inline `!important` 双保险
@@ -71,7 +73,7 @@ dsh plugin --profile web add file:./dsh-skin-picker
 - 背景图片：写入 `--dsw-alias-bg-base` 的 `background` 栈（蒙层 + 图片 cover）
 - host 端用 `settings.register` 注册命名空间 + `connection` RPC 通道做跨设备同步（settings 网关只对白名单命名空间开放第三方读写）
 
-## 📁 结构 Structure
+## 📁 结构
 
 ```
 dsh-skin-picker/
@@ -82,7 +84,7 @@ dsh-skin-picker/
 └── README.md
 ```
 
-## 📝 变更记录 Changelog
+## 📝 变更记录
 
 - **0.6.0**：图片改为「设为背景」——上传/粘贴图片铺成页面背景（带可读性蒙层），取代图片取色
 - **0.5.0**：图片取色换肤（已被 0.6.0 的「背景图片」取代）
