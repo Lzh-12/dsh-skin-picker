@@ -1,7 +1,7 @@
 {
   "name": "dsh-skin-picker",
-  "version": "0.5.0",
-  "description": "DSH 换肤插件：10 套预设皮肤 + 自然语言换肤 + 图片取色换肤 + 界面控件联动 + 恢复默认，设置 → 通用 →「皮肤」行内切换，settings.yaml 跨设备同步。",
+  "version": "0.6.0",
+  "description": "DSH 换肤插件：10 套预设皮肤 + 自然语言换肤 + 自定义背景图片 + 界面控件联动 + 恢复默认，设置 → 通用 →「皮肤」行内切换，settings.yaml 跨设备同步。",
   "type": "module",
   "main": "lib/index.js",
   "exports": {
