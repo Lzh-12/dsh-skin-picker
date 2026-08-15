@@ -1,60 +1,88 @@
-# dsh-skin-picker
+# 🎨 dsh-skin-picker
 
-DSH（DeepSeek Harness）Web 换肤插件：**设置 → 通用 →「皮肤」** 行内切换 10 套预设皮肤，localStorage 即时缓存 + `settings.yaml` 跨设备同步，纯前端渲染、零构建步骤。
+<p align="center">
+  <b>DSH（DeepSeek Harness）换肤插件</b> · <i>DeepSeek Harness skin / theme plugin</i><br>
+  预设皮肤 · 自然语言换肤 · 自定义背景图片 · 界面控件联动 · 跨设备同步<br>
+  <sub>Presets · Natural-language theming · Custom wallpaper · Control theming · Cross-device sync</sub>
+</p>
 
-## 功能
+<p align="center">
+  <a href="https://github.com/Lzh-12/dsh-skin-picker"><img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/Lzh-12/dsh-skin-picker?style=for-the-badge&color=f5a25d"></a>
+  <a href="https://github.com/Lzh-12/dsh-skin-picker/blob/main/LICENSE"><img alt="License" src="https://img.shields.io/badge/License-MIT-3f9b4f?style=for-the-badge"></a>
+  <img alt="Version" src="https://img.shields.io/badge/version-0.6.0-2f7bd9?style=for-the-badge">
+  <a href="https://github.com/Lzh-12/dsh-skin-picker"><img alt="PRs Welcome" src="https://img.shields.io/badge/PRs-welcome-e56a9c?style=for-the-badge"></a>
+</p>
 
-- **10 套预设皮肤**：海盐蓝 / 樱花粉 / 薄荷绿 / 暖阳橙 / 薰衣草紫 / 石墨灰 / 奶油米 / 极光青 / 莓果红 / 森林绿
-- **自然语言换肤**（独特功能）：在「皮肤」行输入任意描述（如「赛博朋克霓虹」「日式抹茶」「复古胶片」），自动生成整套配色——内置 15 组语义关键词库 + 任意文本的确定性 HSL 调色兜底；生成的皮肤以 `nl:<描述>` 存储，同样跨设备同步
-- **自定义背景图片**：选择本地图片或粘贴图片 URL，铺成页面背景（带可读性蒙层，明暗主题自适应），一键清除；背景存 localStorage（单浏览器）
-- 每套皮肤覆盖 **13 个主题令牌**（背景 / 卡片 / 浮层 / 侧栏 / 文字 / 边框 / 主题色 / 错误 / 成功 / 警告），**亮色与暗色各一套**，自动跟随明暗模式
-- **界面控件联动**：输入框、聊天气泡、按钮、「对话/轨迹」tab、状态渐变等派生令牌跟随皮肤色（`color-mix` 混色，inline `!important` 双保险），换肤后整套 UI 协调一致
-- **恢复默认**：一键清除皮肤层，回到官方主题
-- **持久化 + 跨设备同步**：选择即时写 localStorage（秒显示、离线兜底），同时通过 host 端 RPC 写入服务器的 `settings.yaml` —— 连到同一台 DSH 的浏览器/设备会自动跟随同一皮肤
-- **零构建**：`lib/client.js` 为手写纯 JS 浏览器包，安装即用
+---
 
-## 安装
+## ✨ 功能 Features
+
+| 功能 Feature | 说明 Description |
+| --- | --- |
+| 🎨 **预设皮肤** Presets | 10 套精心调制的皮肤，亮 / 暗双色板自动跟随 · 10 curated skins, light & dark palettes |
+| 🗣️ **自然语言换肤** Natural-language theming | 输入「赛博朋克霓虹」「日式抹茶」等描述，自动生成配色 · type a vibe, get a palette |
+| 🖼️ **自定义背景图片** Custom wallpaper | 上传或粘贴 URL 设为页面背景，带可读性蒙层 · set any image as the page background |
+| 🔗 **界面控件联动** Control theming | 输入框 / 气泡 / 按钮 / tab / 渐变跟随配色 · inputs, bubbles, buttons follow the skin |
+| ☁️ **跨设备同步** Cross-device sync | 皮肤选择写入 `settings.yaml`，多设备共享 · synced via `settings.yaml` |
+
+## 🎨 预设皮肤 Presets
+
+<p align="center">
+  <img alt="海盐蓝" src="https://img.shields.io/badge/海盐蓝-2f7bd9?style=for-the-badge&labelColor=2f7bd9&color=ffffff">
+  <img alt="樱花粉" src="https://img.shields.io/badge/樱花粉-e56a9c?style=for-the-badge&labelColor=e56a9c&color=ffffff">
+  <img alt="薄荷绿" src="https://img.shields.io/badge/薄荷绿-2fa36a?style=for-the-badge&labelColor=2fa36a&color=ffffff">
+  <img alt="暖阳橙" src="https://img.shields.io/badge/暖阳橙-e07b2f?style=for-the-badge&labelColor=e07b2f&color=ffffff">
+  <img alt="薰衣草紫" src="https://img.shields.io/badge/薰衣草紫-7a5fd0?style=for-the-badge&labelColor=7a5fd0&color=ffffff">
+</p>
+<p align="center">
+  <img alt="石墨灰" src="https://img.shields.io/badge/石墨灰-3a3f45?style=for-the-badge&labelColor=3a3f45&color=ffffff">
+  <img alt="奶油米" src="https://img.shields.io/badge/奶油米-b98a3e?style=for-the-badge&labelColor=b98a3e&color=ffffff">
+  <img alt="极光青" src="https://img.shields.io/badge/极光青-17a2b8?style=for-the-badge&labelColor=17a2b8&color=ffffff">
+  <img alt="莓果红" src="https://img.shields.io/badge/莓果红-d64545?style=for-the-badge&labelColor=d64545&color=ffffff">
+  <img alt="森林绿" src="https://img.shields.io/badge/森林绿-3f9b4f?style=for-the-badge&labelColor=3f9b4f&color=ffffff">
+</p>
+
+## 📦 安装 Install
 
 ```bash
-# 从本地目录安装
-dsh plugin --profile web add file:./dsh-skin-picker
-
-# 或从 npm / GitHub 安装（发布后）
+# 从 GitHub 安装 · from GitHub
 dsh plugin --profile web add github:Lzh-12/dsh-skin-picker
+
+# 或从本地目录安装 · or from a local folder
+dsh plugin --profile web add file:./dsh-skin-picker
 ```
 
-安装完成后**重启 `dsh web`**（host 半边需启动加载），刷新页面即可在「设置 → 通用」看到「皮肤」行。
+安装完成后**重启 `dsh web`**，刷新页面即可在「设置 → 通用」看到「皮肤」行。
+<sub>Restart `dsh web` after installing, then refresh the page.</sub>
 
-## 使用
+## 🚀 使用 Usage
 
-1. 打开 **设置 → 通用**，找到「皮肤」行（当前皮肤名显示在右侧）；
-2. 点击展开色板网格，点击任意色块立即换肤；
-3. 点击「恢复默认」回到官方主题；
-4. 亮 / 暗模式切换时皮肤自动跟随对应色板；
-5. 换肤会写入服务器设置，其他浏览器/设备刷新后同步。
+1. 打开 **设置 → 通用 →「皮肤」** · open *Settings → General → "Skin"*
+2. **预设皮肤**：点色块立即换肤 · click a swatch to switch presets
+3. **自然语言换肤**：输入描述（如「赛博朋克霓虹」）点「生成」· type a description and hit *Generate*
+4. **背景图片**：点「选择图片」上传，或粘贴 URL 点「设为背景」· upload an image or paste a URL
+5. **恢复默认**：一键回到官方主题 · *恢复默认* resets to the official theme
 
-## 原理
+## 🔧 原理 How it works
 
-- 浏览器端通过 `theme.overrideTokens(source, tokens)` 叠加令牌层：`tokens` 为
-  `令牌名 → { light, dark }` 值对，与主题系统、明暗模式天然兼容；
-- 同 source 重复调用整体替换该层，不与其他插件（如 dsh-skin）的皮肤层互相覆盖；
-- host 端用 `settings.register` 注册 `skin-picker` 命名空间（`settings.yaml`），
-  并暴露 `connection` RPC 通道 `/dsh-skin-picker/config`（get/set）——
-  不用 settings 网关，因为它只对白名单命名空间开放第三方读写；
-- localStorage 仅作即时缓存，服务器值在加载时覆盖本地值。
+- 浏览器端通过 `theme.overrideTokens(source, tokens)` 叠加令牌层：`tokens` 为 `令牌名 → { light, dark }` 值对，与主题系统、明暗模式天然兼容
+- 界面控件联动：派生令牌（`--dsw-specific-*`、`--dsw-static-deepseek-*`、`--dsw-alias-button-*` 等）+ inline `!important` 双保险
+- 自然语言换肤：内置 15 组语义关键词库 + 任意文本的确定性 HSL 调色兜底
+- 背景图片：写入 `--dsw-alias-bg-base` 的 `background` 栈（蒙层 + 图片 cover）
+- host 端用 `settings.register` 注册命名空间 + `connection` RPC 通道做跨设备同步（settings 网关只对白名单命名空间开放第三方读写）
 
-## 结构
+## 📁 结构 Structure
 
 ```
 dsh-skin-picker/
-├── package.json      # npm 元数据 + dsh.bundle / dsh.client 声明 + peerDependencies
+├── package.json      # npm 元数据 + dsh.bundle / dsh.client 声明
 ├── cordis.patch.yml  # bundle 组合补丁（插入插件行）
 ├── lib/index.js      # host 半边：settings 命名空间 + config RPC 通道
-├── lib/client.js     # 浏览器半边：设置行 UI + 令牌覆写 + 本地缓存 + 服务端同步
+├── lib/client.js     # 浏览器半边：UI + 令牌覆写 + 生成器 + 同步
 └── README.md
 ```
 
-## 变更记录
+## 📝 变更记录 Changelog
 
 - **0.6.0**：图片改为「设为背景」——上传/粘贴图片铺成页面背景（带可读性蒙层），取代图片取色
 - **0.5.0**：图片取色换肤（已被 0.6.0 的「背景图片」取代）
@@ -63,6 +91,6 @@ dsh-skin-picker/
 - **0.2.0**：皮肤选择跨设备同步（`settings.yaml` + `connection` RPC，localStorage 兜底）
 - **0.1.0**：初版，10 套预设皮肤 + 恢复默认，localStorage 持久化
 
-## License
+## 📄 License
 
-[MIT](./LICENSE)
+[MIT](./LICENSE) © Aaron111
