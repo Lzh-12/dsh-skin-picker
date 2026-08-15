@@ -1,7 +1,7 @@
 {
   "name": "dsh-skin-picker",
-  "version": "0.1.0",
-  "description": "DSH 换肤插件：10 套预设皮肤（亮/暗各一套令牌）+ 恢复默认，设置 → 通用 →「皮肤」行内切换，localStorage 持久化，无构建步骤。",
+  "version": "0.2.0",
+  "description": "DSH 换肤插件：10 套预设皮肤（亮/暗各一套令牌）+ 恢复默认，设置 → 通用 →「皮肤」行内切换，localStorage 即时缓存 + settings.yaml 跨设备同步。",
   "type": "module",
   "main": "lib/index.js",
   "exports": {
@@ -25,12 +25,19 @@
   ],
   "author": "Aaron111",
   "license": "MIT",
+  "peerDependencies": {
+    "@deepseek-ai/dsh-settings": "^0.1.0-rc.6",
+    "@deepseek-ai/schemastery": "^3.18.1"
+  },
   "dsh": {
     "bundle": {
       "patch": "./cordis.patch.yml"
     },
     "client": {
-      "platform": "web"
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-connection"
+      ]
     }
   }
 }
